@@ -1,4 +1,8 @@
+import HomePage from "pages/HomePage/HomePage";
+import PostDetails from "pages/PostDetails/PostDetails";
+import SearchPage from "pages/SearchPage/SearchPage";
 import { NavLink, Route, Routes } from "react-router-dom";
+import {getUser} from "./services/api";
 
 export const App = () => {
   return (
@@ -15,8 +19,10 @@ export const App = () => {
       </header>
       <div>
         <Routes>
-          <Route></Route>
-          <Route></Route>
+          console.log(`{getUser()}`);
+          <Route path='/' element={<HomePage/>}></Route>
+          <Route path='/search' element={<SearchPage/>}></Route>
+          <Route path='/posts/:postId' element={<PostDetails/>}></Route>
         </Routes>
       </div>
     </div>
