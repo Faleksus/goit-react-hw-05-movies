@@ -9,7 +9,7 @@ export async function getTrendingMovies() {
   };
   try {
     const response = await axios.get(`${URL}/trending/all/day`);
-    console.log(response.data.results);
+    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     console.error(error);
@@ -23,7 +23,7 @@ export async function getSearchMovies(name) {
   };
   try {
     const response = await axios.get(`${URL}/search/movie`);
-    console.log(response.data.results);
+    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     console.error(error);
@@ -36,7 +36,7 @@ export async function getMovieDetails(id) {
   };
   try {
     const response = await axios.get(`${URL}/movie/${id}`);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -49,7 +49,7 @@ export async function getMovieCredits(id) {
   };
   try {
     const response = await axios.get(`${URL}/movie/${id}/credits`);
-    console.log(response.data.cast);
+    // console.log(response.data.cast);
     // console.log(response.data.crew);
     return response.data.cast;
   } catch (error) {
@@ -64,7 +64,7 @@ export async function getMovieReviews(id) {
   };
   try {
     const response = await axios.get(`${URL}/movie/${id}/reviews`);
-    console.log(response.data.results);
+    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     console.error(error);
