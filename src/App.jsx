@@ -2,7 +2,7 @@ import HomePage from "pages/HomePage/HomePage";
 import PostDetails from "pages/PostDetails/PostDetails";
 import SearchPage from "pages/SearchPage/SearchPage";
 import { NavLink, Route, Routes } from "react-router-dom";
-import {getUser} from "./services/api";
+import {getTrendingMovies, getSearchMovies, getMovieDetails} from "./services/api";
 
 export const App = () => {
   return (
@@ -19,7 +19,11 @@ export const App = () => {
       </header>
       <div>
         <Routes>
-          console.log(`{getUser()}`);
+          console.log(`{getTrendingMovies()}`);
+          console.log(`{getSearchMovies('dog gone')}`);
+          console.log(`{getMovieDetails(858408)}`);
+
+
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/search' element={<SearchPage/>}></Route>
           <Route path='/posts/:postId' element={<PostDetails/>}></Route>
