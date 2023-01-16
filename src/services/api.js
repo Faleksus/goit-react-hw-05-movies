@@ -17,28 +17,56 @@ export async function getTrendingMovies() {
 }
 
 export async function getSearchMovies(name) {
-    axios.defaults.params = {
-      api_key: API_KEY,
-      query: `${name}`
-    };
-    try {
-      const response = await axios.get(`${URL}/search/movie`);
-      console.log(response.data.results);
-      return response.data.results;
-    } catch (error) {
-      console.error(error);
-    }
+  axios.defaults.params = {
+    api_key: API_KEY,
+    query: `${name}`,
+  };
+  try {
+    const response = await axios.get(`${URL}/search/movie`);
+    console.log(response.data.results);
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
   }
+}
 
-  export async function getMovieDetails(id) {
-    axios.defaults.params = {
-      api_key: API_KEY,
-    };
-    try {
-      const response = await axios.get(`${URL}/movie/${id}`);
-      console.log(response.data);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
+export async function getMovieDetails(id) {
+  axios.defaults.params = {
+    api_key: API_KEY,
+  };
+  try {
+    const response = await axios.get(`${URL}/movie/${id}`);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
+}
+
+export async function getMovieCredits(id) {
+  axios.defaults.params = {
+    api_key: API_KEY,
+  };
+  try {
+    const response = await axios.get(`${URL}/movie/${id}/credits`);
+    console.log(response.data.cast);
+    // console.log(response.data.crew);
+    return response.data.cast;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function getMovieReviews(id) {
+  axios.defaults.params = {
+    api_key: API_KEY,
+    page: 1,
+  };
+  try {
+    const response = await axios.get(`${URL}/movie/${id}/reviews`);
+    console.log(response.data.results);
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+  }
+}

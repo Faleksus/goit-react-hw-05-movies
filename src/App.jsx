@@ -2,7 +2,7 @@ import HomePage from "pages/HomePage/HomePage";
 import PostDetails from "pages/PostDetails/PostDetails";
 import SearchPage from "pages/SearchPage/SearchPage";
 import { NavLink, Route, Routes } from "react-router-dom";
-import {getTrendingMovies, getSearchMovies, getMovieDetails} from "./services/api";
+// import {getTrendingMovies, getSearchMovies, getMovieDetails, getMovieCredits, getMovieReviews} from "./services/api";
 
 export const App = () => {
   return (
@@ -19,9 +19,11 @@ export const App = () => {
       </header>
       <div>
         <Routes>
-          console.log(`{getTrendingMovies()}`);
-          console.log(`{getSearchMovies('dog gone')}`);
-          console.log(`{getMovieDetails(858408)}`);
+          {/* console.log(`{getTrendingMovies()}`); */}
+          {/* console.log(`{getSearchMovies('dog gone')}`); */}
+          {/* console.log(`{getMovieDetails(858408)}`); */}
+          {/* console.log(`{getMovieCredits(858408)}`); */}
+          {/* console.log(`{getMovieReviews(436270)}`); */}
 
 
           <Route path='/' element={<HomePage/>}></Route>
