@@ -1,22 +1,14 @@
 import HomePage from "pages/HomePage/HomePage";
 import PostDetails from "pages/PostDetails/PostDetails";
 import SearchPage from "pages/SearchPage/SearchPage";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Header } from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom";
 // import {getTrendingMovies, getSearchMovies, getMovieDetails, getMovieCredits, getMovieReviews} from "./services/api";
 
 export const App = () => {
   return (
     <div>
-      <header>
-        <nav>
-          <NavLink to="/" className="NavLink">
-            Home
-          </NavLink>
-          <NavLink to="/search" className="NavLink">
-            Search
-          </NavLink>
-        </nav>
-      </header>
+      <Header/>
       <div>
         <Routes>
           {/* console.log(`{getTrendingMovies()}`); */}

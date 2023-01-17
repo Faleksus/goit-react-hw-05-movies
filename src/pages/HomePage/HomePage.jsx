@@ -12,7 +12,7 @@ export const HomePage = () => {
     const componentDidUpdate = async () => {
       try {
         const movies = await getTrendingMovies();
-        console.log(movies);
+        // console.log(movies);
         setMovies(movies);
 
       } catch (error) {
@@ -28,7 +28,7 @@ export const HomePage = () => {
 
 
   return (
-    <div films={movies}>HomePage </div>
+    <div>HomePage </div>
   )
 }
 
