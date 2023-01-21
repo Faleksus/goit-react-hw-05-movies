@@ -13,7 +13,6 @@ const Movies = () => {
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
-  console.log(query);
 
   useEffect(() => {
     if (query !== null && query.trim() === '' ) return;

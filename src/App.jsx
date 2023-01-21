@@ -4,6 +4,7 @@ import Movies from "pages/Movies/Movies";
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "pages/NotFound/NotFound";
+import Footer from "components/Footer/Footer";
 // import {getTrendingMovies, getSearchMovies, getMovieDetails, getMovieCredits, getMovieReviews} from "./services/api";
 
 export const App = () => {
@@ -26,10 +27,11 @@ export const App = () => {
 
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <Footer/>
     </div>
   );
 };
