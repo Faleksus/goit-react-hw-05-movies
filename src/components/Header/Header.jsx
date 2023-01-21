@@ -1,23 +1,25 @@
-import React from 'react'
+import React from "react";
 // import PropTypes from 'prop-types'
 
-import { NavLink } from 'react-router-dom'
-import css from './Header.module.css';
+import { NavLink } from "react-router-dom";
+import css from "./Header.module.css";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={css.header}>
-        <nav className={css.nav}>
+      <nav className={css.nav}>
         <NavLink to="/" className="NavLink">
-            Home
+          Home
         </NavLink>
-        <NavLink to="/search" className="NavLink">
-            Search
+        <NavLink to="/movies" className="NavLink">
+          Movies
         </NavLink>
-        </nav>
+      </nav>
     </header>
-  )
-}
+  );
+};
+
+export default Header;
 
 // Header.propTypes = {
 
