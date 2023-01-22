@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className={css.footer}>
       <nav className={css.nav}>
-        <Link to="/" className="NavLink">
+        <Link to="/goit-react-hw-05-movies" className="NavLink">
           Home
         </Link>
         <Link to="/movies" className="NavLink">

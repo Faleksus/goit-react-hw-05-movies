@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={css.header}>
       <nav className={css.nav}>
-        <NavLink to="/" className="NavLink">
+        <NavLink to="/goit-react-hw-05-movies" className="NavLink">
           Home
         </NavLink>
         <NavLink to="/movies" className="NavLink">
