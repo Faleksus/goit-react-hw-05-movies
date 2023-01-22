@@ -8,7 +8,7 @@
 }
 
 .item {
-    flex-basis: calc(100% / 5 - 20px);
+    flex-basis: calc(100% / 7 - 10px);
     margin: 0 10px;
     border-radius: 10px;
     box-shadow: rgb(0 0 0 / 10%) 0px 6px 18px;
