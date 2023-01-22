@@ -6,6 +6,7 @@ import { getSearchMovies } from "../../services/api";
 import { MovieList } from "components/MovieList/MovieList";
 import Loader from "components/Loader/Loader";
 import { useSearchParams } from "react-router-dom";
+import Popular from "pages/Popular/Popular";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +16,7 @@ const Movies = () => {
   const query = searchParams.get("query");
 
   useEffect(() => {
-    if (query !== null && query.trim() === '' ) return;
+    if (query !== null && query.trim() === "") return;
     // Варіант 2
     // if (query.trim().length === 0) return;
 
@@ -33,30 +34,32 @@ const Movies = () => {
     fetchSearchMovies(query);
   }, [query]);
 
+  console.log(movies);
+
   useEffect(() => {
     if (error === null) return;
     Notiflix.Notify.failure(`Something went wrong: ${error}`);
   }, [error]);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSearchParams({ query: e.target.elements.search.value});
+    setSearchParams({ query: e.target.elements.search.value });
     e.target.reset();
   };
 
   return (
     <div className={css.containerForm}>
       <form onSubmit={handleSubmit} className={css.searchForm}>
-        <input
-          name="search"
-          className={css.searchFormInput}
-        />
+        <h2 className={css.headerMovies}>
+          You can choose from popular movies or use the search
+        </h2>
+        <input name="search" className={css.searchFormInput} />
         <button type="submit" className={css.searchFormBtn}>
           Search
         </button>
       </form>
       {isLoading && <Loader />}
-      <MovieList movieList={movies} />
+      {movies.length > 0 ? <MovieList movieList={movies} /> : <Popular />}
     </div>
   );
 };

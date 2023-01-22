@@ -40,3 +40,8 @@ export const getMovieReviews = async (id) => {
   });
   return data.results;
 };
+
+export const getMoviePopular = async () => {
+  const { data } = await moviesAPI.get(`movie/popular`);
+  return data.results;
+};

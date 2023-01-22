@@ -5,8 +5,13 @@
   justify-content: center;
   height: 100%;
   padding-top: 20px;
-  width: 1600px;
+  /* width: 1600px; */
   margin: 0 auto;
+}
+
+.headerMovies {
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .searchForm {

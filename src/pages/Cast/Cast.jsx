@@ -33,8 +33,6 @@ function Cast() {
     Notiflix.Notify.failure(`Something went wrong: ${error}`);
   }, [error]);
 
-  console.log(movieCast);
-
   return (
     <>
       {isLoading && <Loader />}
@@ -45,7 +43,11 @@ function Cast() {
               <li key={id} className={css.item}>
                 <img
                   className={css.img}
-                  src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : "https://cdn4.iconfinder.com/data/icons/ui-beast-4/32/Ui-12-512.png"}
+                  src={
+                    profile_path
+                      ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                      : "https://cdn4.iconfinder.com/data/icons/ui-beast-4/32/Ui-12-512.png"
+                  }
                   alt={original_name}
                 />
                 <h3 className={css.headerCast}>{original_name}</h3>

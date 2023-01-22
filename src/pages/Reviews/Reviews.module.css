@@ -14,22 +14,21 @@
     margin: 0 10px;
     border-radius: 10px;
     box-shadow: rgb(0 0 0 / 10%) 0px 6px 18px;
-    /* width: 400px; */
+    max-width: 400px;
+    padding-left: 20px;
 }
 
-.headerBlock {
-    display: flex;
+/* .headerBlock { */
+    /* display: flex; */
     /* justify-content: space-between;
     align-items: center; */
     /* padding: 10px 20px; */
-}
+/* } */
 
 .img {
     display: flex;
     width: 50px;
-    /* height: 100%; */
     object-fit: cover;
-    /* border-radius: 100%; */
     margin-top: auto;
     margin-bottom: auto;
 }

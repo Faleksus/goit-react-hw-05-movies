@@ -35,16 +35,14 @@ const HomePage = () => {
 
   return (
     <div className={css.containerHome}>
-    <ul>
-      <li key={trends.id}>
-        
-        <h2 className={css.headerHome}>Trends of the week</h2>
-        {isLoading && <Loader />}
-        {/* {error !== null && <p>Whoops, something went wrong: {error}</p>} */}
-        <MovieList movieList={trends} />
-        
-      </li>
-    </ul>
+      <ul>
+        <li key={trends.id}>
+          <h2 className={css.headerHome}>Trends of the week</h2>
+          {isLoading && <Loader />}
+          {/* {error !== null && <p>Whoops, something went wrong: {error}</p>} */}
+          <MovieList movieList={trends} />
+        </li>
+      </ul>
     </div>
   );
 };
