@@ -10,6 +10,12 @@
   padding-bottom: 80px;
 }
 
+.backBtn {
+  margin-bottom: 20px;
+  padding-left: 40px;
+  text-decoration: none;
+}
+
 .img {
   width: 100%;
   max-width: 300px;

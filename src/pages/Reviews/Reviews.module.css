@@ -1,0 +1,42 @@
+.list {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 -10px;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.item {
+    /* flex-basis: calc(0% / 5 - 20px); */
+    display: flex;
+    margin: 0 10px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 6px 18px;
+    /* width: 400px; */
+}
+
+.headerBlock {
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    /* padding: 10px 20px; */
+}
+
+.img {
+    display: flex;
+    width: 50px;
+    /* height: 100%; */
+    object-fit: cover;
+    /* border-radius: 100%; */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.headerReviews {
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    padding: 10px 20px;
+}

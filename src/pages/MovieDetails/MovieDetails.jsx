@@ -1,17 +1,19 @@
-import Loader from "components/Loader/Loader";
+import React, { useEffect, useState, lazy, Suspense } from "react";
+import { Link, Route, Routes, useParams, useLocation } from "react-router-dom";
 import Notiflix from "notiflix";
-import Cast from "pages/Cast/Cast";
-import Reviews from "pages/Reviews/Reviews";
-import React, { useEffect, useState } from "react";
-import { Link, Route, Routes, useParams } from "react-router-dom";
 import { getMovieDetails } from "services/api";
+import Loader from "components/Loader/Loader";
 import css from "./MovieDetails.module.css";
+
+const Cast = lazy(() => import("pages/Cast/Cast"));
+const Reviews = lazy(() => import("pages/Reviews/Reviews"));
 
 function MovieDetails() {
   const [movieInfo, setMovieInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     if (!movieId) return;
@@ -37,7 +39,9 @@ function MovieDetails() {
 
   return (
     <div className={css.containerMovieDetails}>
-      {/* <Link to={location?.state?.from ?? '/'}>go back</Link> */}
+      <Link className={css.backBtn} to={location?.state?.from ?? "/"}>
+        &#8592; Go back
+      </Link>
       {isLoading && <Loader />}
       <div>
         {movieInfo !== null && (
@@ -57,7 +61,9 @@ function MovieDetails() {
               <h1>
                 {movieInfo.title} ({movieInfo?.release_date.slice(0, 4)})
               </h1>
-              <p className={css.useScore}>User Score: {movieInfo?.vote_average}</p>
+              <p className={css.useScore}>
+                User Score: {movieInfo?.vote_average}
+              </p>
               <h2>Overview</h2>
               <p className={css.overview}>{movieInfo.overview}</p>
               <h2>Genres</h2>
@@ -76,24 +82,26 @@ function MovieDetails() {
         <div className={css.moreInfo}>
           <h2>More info</h2>
           <Link
-            // state={{ from: location?.state?.from ?? '/' }}
+            state={{ from: location?.state?.from ?? "/" }}
             className={css.moreInfoLink}
             to="reviews"
           >
             Reviews
           </Link>
           <Link
-            // state={{ from: location?.state?.from ?? '/' }}
+            state={{ from: location?.state?.from ?? "/" }}
             className={css.moreInfoLink}
             to="cast"
           >
             Cast
           </Link>
 
-          <Routes>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Routes>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Routes>
+          </Suspense>
         </div>
       </div>
     </div>

@@ -1,15 +1,20 @@
 import React from "react";
 // import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import css from "./MovieList.module.css";
 
 export const MovieList = ({ movieList }) => {
+  const location = useLocation();
+
   return (
     <ul className={css.movieList}>
       {Array.isArray(movieList) &&
         movieList?.map(({ id, name, title, poster_path }) => {
           return (
-            <Link key={id} to={`/movies/${id}`}>
+            <Link 
+              state={{ from: location }}
+              key={id} 
+              to={`/movies/${id}`}>
               <div className={css.movieCard}>
                 <img
                   className={css.img}

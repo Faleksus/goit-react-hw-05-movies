@@ -33,24 +33,32 @@ function Reviews() {
     Notiflix.Notify.failure(`Something went wrong: ${error}`);
   }, [error]);
 
-  console.log(movieReviews);
-
   return (
     <>
       {isLoading && <Loader />}
       <ul className={css.list}>
         {Array.isArray(movieReviews) &&
-          movieReviews?.map(({ id, author, name, username, avatar_path }) => {
+          movieReviews?.map(({ id, author, author_details }) => {
             return (
               <li key={id} className={css.item}>
-                {/* <img
+                <img
                   className={css.img}
-                  src={avatar_path ? `https://image.tmdb.org/t/p/w500${avatar_path}` : "https://cdn4.iconfinder.com/data/icons/ui-beast-4/32/Ui-12-512.png"}
-                  alt={author}
-                /> */}
-                <h3 className={css.headerCast}>{author}</h3>
-                <h3 className={css.headerCast}>{username}</h3>
-
+                  src={
+                    author_details.avatar_path
+                      ? `https://image.tmdb.org/t/p/w500${author_details.avatar_path}`
+                      : "https://cdn4.iconfinder.com/data/icons/ui-beast-4/32/Ui-12-512.png"
+                  }
+                  alt={author_details.name}
+                />
+                <div className={css.headerBlock}>
+                  <h3 className={css.headerReviews}>Author: {author}</h3>
+                  <p className={css.headerReviews}>
+                    Username: {author_details.username}
+                  </p>
+                  <p className={css.headerReviews}>
+                    Rating: {author_details.rating}
+                  </p>
+                </div>
               </li>
             );
           })}
