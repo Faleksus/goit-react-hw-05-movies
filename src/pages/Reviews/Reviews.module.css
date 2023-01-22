@@ -14,7 +14,7 @@
     margin: 0 10px;
     border-radius: 10px;
     box-shadow: rgb(0 0 0 / 10%) 0px 6px 18px;
-    max-width: 400px;
+    max-width: 600px;
     padding-left: 20px;
 }
 
@@ -37,5 +37,12 @@
     display: flex;
     /* justify-content: space-between;
     align-items: center; */
+    padding: 0 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 10px 20px;
 }

@@ -29,6 +29,8 @@ function Reviews() {
     fetchReviews(movieId);
   }, [movieId]);
 
+  console.log(movieReviews);
+
   useEffect(() => {
     if (error === null) return;
     Notiflix.Notify.failure(`Something went wrong: ${error}`);
@@ -39,7 +41,7 @@ function Reviews() {
       {isLoading && <Loader />}
       <ul className={css.list}>
         {Array.isArray(movieReviews) &&
-          movieReviews?.map(({ id, author, author_details }) => {
+          movieReviews?.map(({ id, author, author_details, content }) => {
             return (
               <li key={id} className={css.item}>
                 <img
@@ -59,6 +61,7 @@ function Reviews() {
                   <p className={css.headerReviews}>
                     Rating: {author_details.rating}
                   </p>
+                  <p className={css.content}>{content}</p>
                 </div>
               </li>
             );

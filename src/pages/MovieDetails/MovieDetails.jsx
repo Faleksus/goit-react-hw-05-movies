@@ -68,7 +68,7 @@ function MovieDetails() {
               <h2>Overview</h2>
               <p className={css.overview}>{movieInfo.overview}</p>
               <h2>Genres</h2>
-              <ul className={css.genre}>
+              <ul className={css.genres}>
                 {movieInfo?.genres?.map(({ id, name }) => {
                   return (
                     <li key={id} className={css.genreItem}>
