@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Notiflix from "notiflix";
 import { useEffect, useState } from "react";
+import Notiflix from "notiflix";
 import { getTrendingMovies } from "../../services/api";
 import { MovieList } from "components/MovieList/MovieList";
 import Loader from "components/Loader/Loader";

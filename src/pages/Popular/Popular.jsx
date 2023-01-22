@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import Notiflix from "notiflix";
+import { getMoviePopular } from "services/api";
 import Loader from "components/Loader/Loader";
 import { MovieList } from "components/MovieList/MovieList";
-import Notiflix from "notiflix";
-import React, { useEffect, useState } from "react";
-import { getMoviePopular } from "services/api";
 import css from "./Popular.module.css";
 
 function Popular() {
@@ -38,7 +39,6 @@ function Popular() {
             List of the current popular movies
           </h2>
           {isLoading && <Loader />}
-          {/* {error !== null && <p>Whoops, something went wrong: {error}</p>} */}
           <MovieList movieList={popular} />
         </li>
       </ul>
@@ -47,3 +47,13 @@ function Popular() {
 }
 
 export default Popular;
+
+Popular.propTypes = {
+  popular: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};

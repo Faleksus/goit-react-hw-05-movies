@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import React from "react";
-// import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import css from "./MovieList.module.css";
 
@@ -32,12 +32,12 @@ export const MovieList = ({ movieList }) => {
   );
 };
 
-// MovieList.propTypes = {
-//   movies: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//       name: PropTypes.string,
-//       title: PropTypes.string,
-//     })
-//   ),
-// };
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      name: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};

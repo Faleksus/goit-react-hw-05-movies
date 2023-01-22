@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { Link, Route, Routes, useParams, useLocation } from "react-router-dom";
 import Notiflix from "notiflix";
@@ -109,3 +110,7 @@ function MovieDetails() {
 }
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  movieId: PropTypes.string,
+};

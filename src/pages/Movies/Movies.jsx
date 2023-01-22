@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types'
 import React from "react";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Notiflix from "notiflix";
-import css from "./Movies.module.css";
 import { getSearchMovies } from "../../services/api";
 import { MovieList } from "components/MovieList/MovieList";
 import Loader from "components/Loader/Loader";
-import { useSearchParams } from "react-router-dom";
+
 import Popular from "pages/Popular/Popular";
+import css from "./Movies.module.css";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -65,3 +67,13 @@ const Movies = () => {
 };
 
 export default Movies;
+
+Movies.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};

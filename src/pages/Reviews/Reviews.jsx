@@ -1,8 +1,9 @@
-import Loader from "components/Loader/Loader";
-import Notiflix from "notiflix";
+import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Notiflix from "notiflix";
 import { getMovieReviews } from "services/api";
+import Loader from "components/Loader/Loader";
 import css from "./Reviews.module.css";
 
 function Reviews() {
@@ -68,3 +69,7 @@ function Reviews() {
 }
 
 export default Reviews;
+
+Reviews.propTypes = {
+  movieId: PropTypes.string,
+};

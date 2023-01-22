@@ -1,7 +1,8 @@
-import Loader from "components/Loader/Loader";
-import Notiflix from "notiflix";
+import PropTypes from 'prop-types'
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Notiflix from "notiflix";
+import Loader from "components/Loader/Loader";
 import { getMovieCredits } from "services/api";
 import css from "./Cast.module.css";
 
@@ -60,3 +61,7 @@ function Cast() {
 }
 
 export default Cast;
+
+Cast.propTypes = {
+  movieId: PropTypes.string,
+};
